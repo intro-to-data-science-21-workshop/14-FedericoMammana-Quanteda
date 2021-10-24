@@ -1,0 +1,53 @@
+---
+title: "Text analysis with quanteda - Presentation"
+author: "Federico Mammana & Kathryn Malchow"
+date: "24/10/2021"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## What is quanteda?
+quanteda is an R package to perform a variety of natural language processing tasks: corpus management, tokenization, analysis, visualization.
+→ quanteda is to text analysis what dplyr and tidyr are to data wrangling
+
+In quanteda, text is processed as:
+corpus → after having converted text data in corpus format (through the corpus function) we can work on it with quanteda; a corpus holds documents separately from each other.
+document-feature matrix (“dfm”) → the analytical unit in which perform analysis; text documents are organized in matrices, with original texts as rows and features as columns. “Features” are more generally defined than “terms”, as they may be raw terms, stemmed terms, terms without stopwords, etc.
+tokens → usually each word in a text, but also single characters or sentences if we want.
+
+## Why use quanteda?
+quanteda is built to be faster and more efficient than any other R or Python package for processing large textual data. Infrastructure on three main pillars:
+stringi package for text processing,
+Matrix package for sparse matrix objects,
+computationally intensive processing (e.g. for tokens) handled in parallelized C++
+
+Intuitive, powerful, and flexible
+
+
+## R Markdown
+
+This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+

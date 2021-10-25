@@ -29,7 +29,7 @@ Intuitive, powerful, and flexible
 
 ## 
 
-Now lets see some functions!
+Now lets see text preprocessing workflow and some functions!
 
 ## Loading Text Data into R
 
@@ -49,15 +49,84 @@ Create a corpus:
 speech_corpus = corpus(speech_text)
 
 
-## Slide with R Output
+## Preprocessing - Tokenize the text
 
-```{r cars, echo = TRUE}
-summary(cars)
+```{r, echo = TRUE}
+text <- c("I <3 little pumpkins! OMG they're so cute.")
+
+
+tokens(text, what = "sentence")
+tokens(text, what = "character")
+text_token = tokens(text, what = "word") #default
+```
+## Tokenize the text continued
+
+```{r}
+tokens(text,
+remove_punct = TRUE,
+remove_numbers = FALSE,
+remove_symbols = TRUE)
 ```
 
-## Preprocessing
+
+##  Make lower case
 
 ```{r pressure}
-plot(pressure)
+# char_tolower(text) before tokenizing
+
+tokens_tolower(text_token) #after tokenizing
+```
+## You can also keep acronyms by adding: keep_acronyms = TRUE
+
+```{r}
+#char_tolower(text, keep_acronyms = TRUE)
+
+tokens_tolower(text_token, keep_acronyms = TRUE)
+```
+## Removing Stop Words
+
+```{r}
+tokens_remove(text_token, stopwords("en"))
+
+```
+## Removing other unwanted words
+
+```{r}
+tokens_remove(text_token, c("pumpkins", "cute"))
+```
+## Word Stemming
+
+```{r}
+
+dip_text = c("When I dip, he dips, we are dipping.")
+
+dip_token = tokens(rand_text)
+
+tokens_wordstem(dip_token)
+```
+## KeyWords in Context, a cool function
+
+```{r}
+fc_text = c("“You are not your job, you're not how much money you have in the bank. You are not the car you drive. You're not the contents of your wallet. You are not your fucking khakis. You are all singing, all dancing crap of the world.")
+
+fc_token = tokens(fc_text)
+
+kwic(fc_token, "you", window=2)
+
+```
+## Document Feature Matrix
+
+```{r}
+dfm()
 ```
 
+# DFM Subset
+
+```{r}
+
+```
+
+## DFM Trim
+```{r}
+
+```

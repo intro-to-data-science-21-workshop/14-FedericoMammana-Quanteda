@@ -150,6 +150,6 @@ topfeatures(sample_dfm, 5)
 stopwords_getsources()  #to see other sources with different languages 
 
 stopwords_getlanguages(source): #to see language options of sources
-  jj
+  jjj
 ```
 

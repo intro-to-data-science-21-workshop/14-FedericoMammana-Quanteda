@@ -1,7 +1,7 @@
 ---
 title: "Text analysis with quanteda - Presentation"
 author: "Federico Mammana & Kathryn Malchow"
-date: "24/10/2021"
+date: "04/11/2021"
 output:  
   html_document:
     code_folding: show
@@ -17,28 +17,33 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-What is quanteda?
+## What is quanteda?
+
 quanteda is an R package to perform a variety of natural language processing tasks: corpus management, tokenization, analysis, visualization.
-→ quanteda is to text analysis what dplyr and tidyr are to data wrangling
+
+→ *quanteda is to text analysis what dplyr and tidyr are to data wrangling*
 
 In quanteda, text is processed as:
-corpus → after having converted text data in corpus format (through the corpus function) we can work on it with quanteda; a corpus holds documents separately from each other.
-document-feature matrix (“dfm”) → the analytical unit in which perform analysis; text documents are organized in matrices, with original texts as rows and features as columns. 
+
+- corpus → after having converted text data in corpus format (through the corpus function) we can work on it with quanteda; a corpus holds documents separately from each other.
+
+- tokens → usually each word in a text, but also single characters or sentences if we want
+
+- document-feature matrix (“dfm”) → the analytical unit in which perform analysis; text documents are organized in matrices, with original texts as rows and features as columns. “Features” are more generally defined than “terms”, as they may be raw terms, stemmed terms, terms without stopwords, etc.
 
 ![Document Feature Matrix](..\14-FedericoMammana-Quanteda-\DFM Pic.png)
 
+## Why use quanteda?
 
-“Features” are more generally defined than “terms”, as they may be raw terms, stemmed terms, terms without stopwords, etc.
-tokens → usually each word in a text, but also single characters or sentences if we want.
-Insert picture of DFM here?
-
-Why use quanteda?
 quanteda is built to be faster and more efficient than any other R or Python package for processing large textual data. Infrastructure on three main pillars:
-stringi package for text processing,
-Matrix package for sparse matrix objects,
-computationally intensive processing (e.g. for tokens) handled in parallelized C++
 
-Intuitive, powerful, and flexible
+- stringi package for text processing
+
+- Matrix package for sparse matrix objects
+
+- computationally intensive processing (e.g. for tokens) handled in parallelized C++
+
+**Intuitive, powerful, and flexible**
 
 
 ## 

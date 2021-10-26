@@ -7,6 +7,8 @@ This repository provides materials for a session that is part of the [I2DS Tools
 
 ### Workshop contents
 
+Please click [here](https://raw.githack.com/intro-to-data-science-21-workshop/14-FedericoMammana-Quanteda-/main/Text-analysis-with-quanteda---Presentation.html) for the html of our presentation.
+
 Please click [here](https://github.com/intro-to-data-science-21-workshop/14-FedericoMammana-Quanteda-/blob/main/Live%20Session%20Exercises.R) for the live session exercises. 
 
 This workshop will introduce you to text analysis using the quanteda package. Text analysis is the process of automatically classifying and extracting meaningful information from unstructured text. Quanteda is  a fundamental tool to perform text analysis, as well as a variety of other natural language processing tasks such as corpus management, tokenization, and visualization.

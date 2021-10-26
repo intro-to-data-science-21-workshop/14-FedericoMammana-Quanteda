@@ -117,16 +117,38 @@ kwic(fc_token, "you", window=2)
 ## Document Feature Matrix
 
 ```{r}
-dfm()
+sample_token = tokens(data_corpus_inaugural)
+
+sample_dfm = dfm(sample_token)
+
+sample_dfm
 ```
 
 # DFM Subset
 
 ```{r}
-test
+
+sample_dfm[1:5,1:7]
+
 ```
 
 ## DFM Trim
 ```{r}
-
+dfm_trim(sample_dfm, min_termfreq = 30, max_termfreq = 100)
 ```
+## DFM Top Features
+
+```{r}
+
+topfeatures(sample_dfm, 5)
+```
+## Language Options
+
+```{r}
+#default snowball collection (15 languages) 
+
+stopwords_getsources()  #to see other sources with different languages 
+
+stopwords_getlanguages(source): #to see language options of sources
+```
+

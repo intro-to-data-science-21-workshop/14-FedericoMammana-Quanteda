@@ -6,6 +6,7 @@
 This repository provides materials for a session that is part of the [I2DS Tools for Data Science workshop](https://github.com/intro-to-data-science-21-workshop) run at the [Hertie School, Berlin](https://www.hertie-school.org/en/) in November 2021. The student-run workshop is part of the course [Introduction to Data Science](https://github.com/intro-to-data-science-21) taught by Simon Munzert at the Hertie School, Berlin, in Fall 2021.
 
 ### Workshop contents
+Live Session Exercises \[[**.Rmd**](https://github.com/intro-to-data-science-21-workshop/14-FedericoMammana-Quanteda-/blob/main/Live%20Session%20Exercises.R]
 
 This workshop will introduce you to text analysis using the quanteda package. Text analysis is the process of automatically classifying and extracting meaningful information from unstructured text. Quanteda is  a fundamental tool to perform text analysis, as well as a variety of other natural language processing tasks such as corpus management, tokenization, and visualization.
 The following poem will be used in the live tutorial:

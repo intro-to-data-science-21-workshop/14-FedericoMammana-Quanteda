@@ -7,11 +7,29 @@ This repository provides materials for a session that is part of the [I2DS Tools
 
 ### Workshop contents
 
-This workshop will introduce you to text analysis using the quanteda package. Text analysis is the process of automatically classifying and extracting meaningful information from unstructured text. Quanteda is  probably the most efficient tool to perform text analysis, as well as a variety of other natural language processing tasks such as corpus management, tokenization, and visualization.
+This workshop will introduce you to text analysis using the quanteda package. Text analysis is the process of automatically classifying and extracting meaningful information from unstructured text. Quanteda is  a fundamental tool to perform text analysis, as well as a variety of other natural language processing tasks such as corpus management, tokenization, and visualization.
+The following poem will be used in the live tutorial:
+
+"Ozymandias" by Percy Bysshe Shelley
+
+I met a traveller from an antique land,
+Who said - “Two vast and trunkless legs of stone
+Stand in the desert... Near them, on the sand,
+Half sunk a shattered visage lies, whose frown,
+And wrinkled lip, and sneer of cold command,
+Tell that its sculptor well those passions read
+Which yet survive, stamped on these lifeless things,
+The hand that mocked them, and the heart that fed;
+And on the pedestal, these words appear:
+My name is Ozymandias, King of Kings;
+Look on my Works, ye Mighty, and despair!
+Nothing beside remains. Round the decay
+Of that colossal Wreck, boundless and bare
+The lone and level sands stretch far away.”
 
 ### Main learning objectives
 
-The goals of this session are to (1) , (2) , and (3) provide you with practice material as well as some further readings.
+The goals of this session are to (1) introduce you to pre-processing of text and management of document-feature matrices, (2) try out basic functions on corpora and tokens, and (3) provide you with practice material as well as some further readings.
 
 
 ## Instructors
@@ -21,9 +39,10 @@ The goals of this session are to (1) , (2) , and (3) provide you with practice m
 
 ## Further resources
 
-- [dplyr overview at dplyr.tidyverse.org](https://dplyr.tidyverse.org/)
-- [Hands-on dplyr tutorial by Data School on YouTube](https://www.youtube.com/watch?v=jWjqLW-u3hc)
-- [R for Data Science book - part on data wrangling](https://r4ds.had.co.nz/wrangle-intro.html)
+- [quanteda: An R package for the quantitative analysis of
+textual data](https://www.theoj.org/joss-papers/joss.00774/10.21105.joss.00774.pdf)
+- [quanteda tutorials by Kohei Watanabe and Stefan Müller](https://tutorials.quanteda.io/)
+- [a beginner's guide to text analysis with quanteda](https://data.library.virginia.edu/a-beginners-guide-to-text-analysis-with-quanteda/)
 
 
 ## License
@@ -32,6 +51,6 @@ The material in this repository is made available under the [MIT license](http:/
 
 ## Statement of contributions
 
-**Simon Munzert** prepared the practice material and post-processed the recording.
+**Kathryn Malchow** prepared the showcase of functions and tools of the presentation. Prepared the live tutorial.
 
-**Kermit the Frog** prepared the presentation slides and recording. He also provided an example to the practice material.
+**Federico Mammana** prepared the introduction to quanteda and motivation of the presentation. Prepared the live tutorial.

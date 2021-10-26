@@ -17,7 +17,7 @@ output:
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-##What is quanteda?
+What is quanteda?
 quanteda is an R package to perform a variety of natural language processing tasks: corpus management, tokenization, analysis, visualization.
 → quanteda is to text analysis what dplyr and tidyr are to data wrangling
 
@@ -32,7 +32,7 @@ document-feature matrix (“dfm”) → the analytical unit in which perform ana
 tokens → usually each word in a text, but also single characters or sentences if we want.
 Insert picture of DFM here?
 
-##Why use quanteda?
+Why use quanteda?
 quanteda is built to be faster and more efficient than any other R or Python package for processing large textual data. Infrastructure on three main pillars:
 stringi package for text processing,
 Matrix package for sparse matrix objects,
@@ -47,27 +47,36 @@ Now lets see text preprocessing workflow and some functions!
 
 ## Loading Text Data into R
 
-library(readtext) - companion package to Quanteda to read text (.txt) files or comma-separated-value (.csv) files
-library(quanteda)
-
-Read in text:
-
-speech_text = readtext(".....txt"),
-  docvarsfrom = "filenames",
-  docvarnames = c("country", "session", "year"),
-  dvsep = "_")
+```{r, echo = TRUE, results='hide', message=FALSE}
+library(readtext) # companion package to Quanteda to read text (.txt) files or comma-separated-value (.csv) files
+library(quanteda) # for making a corpus and the rest of our text processing
+```
 
 
-Create a corpus:
+### Read in text
 
-speech_corpus = corpus(speech_text)
+```{r, echo=TRUE}
+austen_texts = readtext("data/Austen_texts/*.txt", 
+                       docvarsfrom= "filenames", dvsep = "_",
+                       docvarnames = c("Author", "Book"))
+austen_texts
+```
 
 
-## Preprocessing - Tokenize the text
+### Create a corpus
+
+```{r, echo=TRUE}
+book_corpus = corpus(austen_texts)
+summary(book_corpus)
+
+```
+
+
+## Preprocessing
+
+### Tokenize the text
 
 ```{r, echo = TRUE}
-library(readtext) #- companion package to Quanteda to read text (.txt) files or comma-separated-value (.csv) files
-library(quanteda)
 
 text <- c("I <3 little pumpkins! OMG they're so cute.")
 
@@ -75,10 +84,13 @@ text <- c("I <3 little pumpkins! OMG they're so cute.")
 tokens(text, what = "sentence")
 tokens(text, what = "character")
 text_token = tokens(text, what = "word") #default
+text_token
 ```
-## Tokenize the text continued
 
-```{r}
+
+### Remove punctuation, etc within tokens() function
+
+```{r, echo = TRUE}
 tokens(text,
 remove_punct = TRUE,
 remove_numbers = FALSE,
@@ -86,34 +98,42 @@ remove_symbols = TRUE)
 ```
 
 
-##  Make lower case
+###  Make lower case
 
-```{r pressure}
+```{r, echo = TRUE}
 # char_tolower(text) before tokenizing
 
 tokens_tolower(text_token) #after tokenizing
 ```
-## You can also keep acronyms by adding: keep_acronyms = TRUE
 
-```{r}
-#char_tolower(text, keep_acronyms = TRUE)
+
+### You can also keep acronyms by adding: keep_acronyms = TRUE
+
+```{r, echo = TRUE}
+#char_tolower(text, keep_acronyms = TRUE) before tokenizing
 
 tokens_tolower(text_token, keep_acronyms = TRUE)
 ```
-## Removing Stop Words
 
-```{r}
+
+### Removing Stop Words
+
+```{r, echo=TRUE}
 tokens_remove(text_token, stopwords("en"))
 
 ```
-## Removing other unwanted words
 
-```{r}
+
+### Removing other unwanted words
+
+```{r, echo=TRUE}
 tokens_remove(text_token, c("pumpkins", "cute"))
 ```
-## Word Stemming
 
-```{r}
+
+### Word Stemming
+
+```{r, echo=TRUE}
 
 dip_text = c("When I dip, he dips, we are dipping.")
 
@@ -121,19 +141,30 @@ dip_token = tokens(dip_text)
 
 tokens_wordstem(dip_token)
 ```
+
+
 ## KeyWords in Context, a cool function
 
-```{r}
-fc_text = c("“You are not your job, you're not how much money you have in the bank. You are not the car you drive. You're not the contents of your wallet. You are not your fucking khakis. You are all singing, all dancing crap of the world.")
+```{r, echo=TRUE}
+lr_text = c("Three Rings for the Elven-kings under the sky,
+Seven for the Dwarf-lords in their halls of stone,
+Nine for Mortal Men doomed to die,
+One for the Dark Lord on his dark throne
+In the Land of Mordor where the Shadows lie.
+One Ring to rule them all, One Ring to find them,
+One Ring to bring them all, and in the darkness bind them,
+In the Land of Mordor where the Shadows lie.")
 
-fc_token = tokens(fc_text)
+lr_token = tokens(lr_text)
 
-kwic(fc_token, "you", window=2)
+kwic(lr_token, "Ring", window=2)
 
 ```
+
+
 ## Document Feature Matrix
 
-```{r}
+```{r, echo=TRUE}
 sample_token = tokens(data_corpus_inaugural)
 
 sample_dfm = dfm(sample_token)
@@ -141,32 +172,52 @@ sample_dfm = dfm(sample_token)
 sample_dfm
 ```
 
-# DFM Subset
 
-```{r}
+### DFM Subset
 
+```{r, echo=TRUE}
 sample_dfm[1:5,1:7]
-
 ```
 
-## DFM Trim
-```{r}
+
+### DFM Trim
+
+```{r, echo=TRUE}
 dfm_trim(sample_dfm, min_termfreq = 30, max_termfreq = 100)
 ```
-## DFM Top Features
+### DFM Top Features
 
-```{r}
-
+```{r, echo=TRUE}
 topfeatures(sample_dfm, 5)
 ```
+
+
 ## Language Options
 
-```{r}
-#default snowball collection (15 languages) 
+Quanteda automatically loads stop words from the "Stopwords" package with the "Snowball" collection of 15 languages
 
-#stopwords_getsources()  #to see other sources with different languages 
+```{r, echo=TRUE}
+library(stopwords)
 
-#stopwords_getlanguages(source): #to see language options of sources
+stopwords_getsources()  #to see other sources with different languages 
 
+stopwords_getlanguages("snowball") #to see language options of sources
+
+
+```
+
+
+```{r, echo=TRUE}
+it_poem = ("E chiese al vecchio dammi il pane
+Ho poco tempo e troppa fame
+E chiese al vecchio dammi il vino
+Ho sete e sono un assassino
+Gli occhi dischiuse il vecchio al giorno
+Non si guardò neppure intorno
+Ma versò il vino e spezzò il pane
+Per chi diceva ho sete e ho fame")
+
+tokens(it_poem) %>% 
+  tokens_remove(stopwords("it"))
 ```
 

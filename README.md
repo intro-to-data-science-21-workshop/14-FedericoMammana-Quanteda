@@ -7,7 +7,7 @@ This repository provides materials for a session that is part of the [I2DS Tools
 
 ### Workshop contents
 
-**Please click [here](https://raw.githack.com/intro-to-data-science-21-workshop/14-FedericoMammana-Quanteda-/main/Presentation/Text-analysis-with-quanteda---Presentation.html) for our presentation html.**
+**Please click [here](https://rawcdn.githack.com/intro-to-data-science-21-workshop/14-FedericoMammana-Quanteda-/4b24d79ec80a06a8018faf687055b2f573396869/Presentation/Text-analysis-with-quanteda---Presentation.html) for our presentation html.**
 
 **Please click [here](https://raw.githack.com/intro-to-data-science-21-workshop/14-FedericoMammana-Quanteda-/main/Live%20Tutorial/quanteda-Live-Tutorial.html) for the live session exercises html.**
 

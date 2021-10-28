@@ -4,12 +4,14 @@ author: "Federico Mammana & Kathryn Malchow"
 date: "04/11/2021"
 output:  
   html_document:
+    toc: TRUE
+    toc_depth: 3
+    number_sections: FALSE
     code_folding: show
     df_print: paged
+    toc_float: true
     highlight: tango
-    number_sections: no
     theme: cosmo
-    toc: no
     keep_md: true
 ---
 
@@ -29,7 +31,7 @@ In quanteda, text is processed as:
 
 - document-feature matrix (“dfm”) → the analytical unit in which perform analysis; text documents are organized in matrices, with original texts as rows and features as columns. “Features” are more generally defined than “terms”, as they may be raw terms, stemmed terms, terms without stopwords, etc.
 
-![Document Feature Matrix](..\14-FedericoMammana-Quanteda-\DFM Pic.png)
+![Source: MZES Social Science Data Lab, 2021](..\Presentation\DFM Pic.png)
 
 ## Why use quanteda?
 
@@ -44,7 +46,7 @@ quanteda is built to be faster and more efficient than any other R or Python pac
 **Intuitive, powerful, and flexible**
 
 
-## 
+---
 
 Now lets see text preprocessing workflow and some functions!
 
@@ -61,7 +63,7 @@ library(quanteda) # for making a corpus and the rest of our text processing
 
 
 ```r
-austen_texts = readtext("data/Austen_texts/*.txt", 
+austen_texts = readtext("../data/Austen_texts/*.txt", 
                        docvarsfrom= "filenames", dvsep = "_",
                        docvarnames = c("Author", "Book"))
 austen_texts
@@ -88,6 +90,7 @@ summary(book_corpus)
   </script>
 </div>
 
+---
 
 ## Preprocessing
 
@@ -231,6 +234,7 @@ tokens_wordstem(dip_token)
 ## [11] "."
 ```
 
+---
 
 ## KeyWords in Context, a cool function
 
@@ -256,6 +260,7 @@ kwic(lr_token, "Ring", window=2)
   </script>
 </div>
 
+---
 
 ## Document Feature Matrix
 
@@ -348,6 +353,7 @@ topfeatures(sample_dfm, 5)
 ## 10183  7180  7173  5406  5155
 ```
 
+---
 
 ## Language Options
 

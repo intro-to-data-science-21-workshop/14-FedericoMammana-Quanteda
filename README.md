@@ -29,6 +29,7 @@ The goals of this session are to (1) introduce you to pre-processing of text and
 textual data](https://www.theoj.org/joss-papers/joss.00774/10.21105.joss.00774.pdf)
 - [quanteda tutorials by Kohei Watanabe and Stefan Müller](https://tutorials.quanteda.io/)
 - [a beginner's guide to text analysis with quanteda](https://data.library.virginia.edu/a-beginners-guide-to-text-analysis-with-quanteda/)
+- [textual data visualization with quanteda](https://quanteda.io/articles/pkgdown/examples/plotting.html#plot-keyness-in-a-target-and-reference-group-1)
 
 
 ## License

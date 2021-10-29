@@ -19,6 +19,8 @@ output:
 
 ### Tokenizing text
 
+library(quanteda)
+library(dplyr)
 
 1. Tokenize the words in the following poem (*Ozymandias* by Percy Bysshe Shelley). Be sure to remove all punctuations and symbols while you do it.
 
@@ -42,43 +44,6 @@ The lone and level sands stretch far away.
 3. Remove (english) stopwords from the tokenized text.
 
 
-                                                                                                                                                      Answers ↓
-
-```{.r .fold-hide}
-library(quanteda)
-library(dplyr)
-
-#1.
-
-poem_shelley = ("I met a traveller from an antique land,\
-Who said - “Two vast and trunkless legs of stone\
-Stand in the desert... Near them, on the sand,\
-Half sunk a shattered visage lies, whose frown,\
-And wrinkled lip, and sneer of cold command,\
-Tell that its sculptor well those passions read\
-Which yet survive, stamped on these lifeless things,\
-The hand that mocked them, and the heart that fed;\
-And on the pedestal, these words appear:\
-My name is Ozymandias, King of Kings;\
-Look on my Works, ye Mighty, and despair!\
-Nothing beside remains. Round the decay\
-Of that colossal Wreck, boundless and bare\
-The lone and level sands stretch far away.")
-
-#2. 
-
-shelley_token = tokens(poem_shelley,
-          remove_punct = TRUE,
-          remove_symbols = TRUE) %>% 
-  tokens_tolower()
-
-
-#3.
-
-shelley_token = tokens_remove(shelley_token, stopwords("en"))
-```
-
-
 ---
 
 ## Part 2 - Visualize Text Data
@@ -86,7 +51,10 @@ shelley_token = tokens_remove(shelley_token, stopwords("en"))
 
 ### With a Frequency Plot of all Words and all Presidents
 
+
 ```r
+library(quanteda)
+library(dplyr)
 library(quanteda.textstats) # for textstat_frequency()
 library(ggplot2)
 
@@ -110,7 +78,7 @@ theme(axis.text.x = element_text(angle = 90, hjust = 1))+ # turn words sideways
 labs(x = "Feature", y = "Frequency")
 ```
 
-![](quanteda-Live-Tutorial_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
+![](quanteda-Live-Tutorial_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
 
 
 ### With Keyword for each President
@@ -139,7 +107,7 @@ ggplot(freq_freedom, aes(x = group, y = frequency)) +
     labs(x = "President", y = "Frequency", title = "Frequency for use of 'freedom' by President")
 ```
 
-![](quanteda-Live-Tutorial_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
+![](quanteda-Live-Tutorial_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
 
 
 

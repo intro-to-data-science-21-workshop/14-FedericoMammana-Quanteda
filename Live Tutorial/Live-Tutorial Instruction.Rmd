@@ -1,32 +1,27 @@
 ---
-title: "quanteda Live Tutorial"
-author: "Federico Mammana & Kathryn Malchow"
-date: "04/11/2021"
-output: 
-  html_document:
-    code_folding: show
-    df_print: paged
-    highlight: tango
-    number_sections: no
-    theme: cosmo
-    toc: no
-    keep_md: true
+title: "Live Tutorial-instruction"
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+
+
+
 ## Part 1 - Preprocessing
 
 ### Tokenizing text
 
+```{r}
+
 library(quanteda)
 library(dplyr)
 
-1. Tokenize the words in the following poem (*Ozymandias* by Percy Bysshe Shelley). Be sure to remove all punctuations and symbols while you do it.
+#1.
 
-I met a traveller from an antique land,\
+poem_shelley = ("I met a traveller from an antique land,\
 Who said - “Two vast and trunkless legs of stone\
 Stand in the desert... Near them, on the sand,\
 Half sunk a shattered visage lies, whose frown,\
@@ -39,11 +34,21 @@ My name is Ozymandias, King of Kings;\
 Look on my Works, ye Mighty, and despair!\
 Nothing beside remains. Round the decay\
 Of that colossal Wreck, boundless and bare\
-The lone and level sands stretch far away.
+The lone and level sands stretch far away.")
 
-2. Make the tokenized text lowercase.
+#2. 
 
-3. Remove (english) stopwords from the tokenized text.
+shelley_token = tokens(poem_shelley,
+                       remove_punct = TRUE,
+                       remove_symbols = TRUE) %>% 
+  tokens_tolower()
+
+
+#3.
+
+shelley_token = tokens_remove(shelley_token, stopwords("en"))
+```
+
 
 
 ---
@@ -107,8 +112,6 @@ ggplot(freq_freedom, aes(x = group, y = frequency)) +
     labs(x = "President", y = "Frequency", title = "Frequency for use of 'freedom' by President")
 
 ```
-
-
 
 
 

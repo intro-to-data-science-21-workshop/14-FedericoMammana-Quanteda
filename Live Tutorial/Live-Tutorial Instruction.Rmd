@@ -19,9 +19,9 @@ knitr::opts_chunk$set(echo = TRUE)
 library(quanteda)
 library(dplyr)
 
-#1.
+#1. Tokenize the words in Ozymandias by Percy Bysshe Shelley. Remove all punctuations and symbols.
 
-poem_shelley = ("I met a traveller from an antique land,\
+poem_shelley <- ("I met a traveller from an antique land,\
 Who said - “Two vast and trunkless legs of stone\
 Stand in the desert... Near them, on the sand,\
 Half sunk a shattered visage lies, whose frown,\
@@ -36,17 +36,19 @@ Nothing beside remains. Round the decay\
 Of that colossal Wreck, boundless and bare\
 The lone and level sands stretch far away.")
 
-#2. 
+# Tokenize the text
+shelley_token <- tokens(poem_shelley, what="word",
+       remove_punct = TRUE,
+       remove_symbols = TRUE)
 
-shelley_token = tokens(poem_shelley,
-                       remove_punct = TRUE,
-                       remove_symbols = TRUE) %>% 
-  tokens_tolower()
+#2. Make tokenized text lower case
+
+shelley_tl <- tokens_tolower(shelley_token)
 
 
-#3.
+# 3. Remove stopwords
 
-shelley_token = tokens_remove(shelley_token, stopwords("en"))
+shelley_nostop <- tokens_remove(shelley_tl, stopwords("en"))
 ```
 
 
